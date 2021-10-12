@@ -28,7 +28,7 @@ url: "https://omgitsbillryan.github.io" # the base hostname & protocol for your 
 github_username:  omgitsbillryan
 
 # Build settings
-theme: jekyll-theme-slate
+theme: minima
 plugins:
   - jekyll-feed
   - jemoji
