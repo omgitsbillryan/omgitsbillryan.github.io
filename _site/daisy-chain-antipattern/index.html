@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Daisy Chain Anti-Pattern | OMG! It’s Bill Ryan!</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Daisy Chain Anti-Pattern" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="There’s an anti-pattern that I often encounter, I call it “The Daisy Chain”. Code that follows this anti-pattern often looks neat and tidy on the surface. This Doesn’t Seem so Bad… class ThingsController &lt; ApplicationController def index thing_getter = ThingGetter.new thing_getter.get_all end end “Seems like a lean controller” you admit to yourself… but then you drill into things_getter.rb. The Horror class ThingGetter def get_all validate end private def validate # *validate stuff* log_stuff end def log_stuff # *log stuff* get_thing_a end def get_thing_a a = external_request_a get_thing_b(a) end def get_thing_b(a) b = external_request_b {things: {a: a, b: b}} end end :scream: :scream: :scream: This code has problems. Abstractions don’t make sense get_all does not in fact return “all things”, it returns “validate” :man_shrugging: Functions are not reusable It’s not possible to call log_stuff without also calling get_thing_a. There’s Hidden Gotchas When you look at the controller and see thing_getter.get_all, you quickly assume that it’s getting all the things. In reality it’s doing a lot more than that. How To Avoid This When code comes out as a stream of conciousness, a developer may simply make a new function when the prior function gets too big which results in this function “chaining” effect. Most coding I’ve done in practice has been reading &amp; modifying code that wasn’t my own. Do yourfellow developers a solid and consider the high-level abstractions at play and encapsulate them properly." />
+<meta property="og:description" content="There’s an anti-pattern that I often encounter, I call it “The Daisy Chain”. Code that follows this anti-pattern often looks neat and tidy on the surface. This Doesn’t Seem so Bad… class ThingsController &lt; ApplicationController def index thing_getter = ThingGetter.new thing_getter.get_all end end “Seems like a lean controller” you admit to yourself… but then you drill into things_getter.rb. The Horror class ThingGetter def get_all validate end private def validate # *validate stuff* log_stuff end def log_stuff # *log stuff* get_thing_a end def get_thing_a a = external_request_a get_thing_b(a) end def get_thing_b(a) b = external_request_b {things: {a: a, b: b}} end end :scream: :scream: :scream: This code has problems. Abstractions don’t make sense get_all does not in fact return “all things”, it returns “validate” :man_shrugging: Functions are not reusable It’s not possible to call log_stuff without also calling get_thing_a. There’s Hidden Gotchas When you look at the controller and see thing_getter.get_all, you quickly assume that it’s getting all the things. In reality it’s doing a lot more than that. How To Avoid This When code comes out as a stream of conciousness, a developer may simply make a new function when the prior function gets too big which results in this function “chaining” effect. Most coding I’ve done in practice has been reading &amp; modifying code that wasn’t my own. Do yourfellow developers a solid and consider the high-level abstractions at play and encapsulate them properly." />
+<link rel="canonical" href="http://localhost:4000/billryan/daisy-chain-antipattern/" />
+<meta property="og:url" content="http://localhost:4000/billryan/daisy-chain-antipattern/" />
+<meta property="og:site_name" content="OMG! It’s Bill Ryan!" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-10-06T15:18:22-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Daisy Chain Anti-Pattern" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/billryan/daisy-chain-antipattern/","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/billryan/daisy-chain-antipattern/"},"headline":"Daisy Chain Anti-Pattern","dateModified":"2021-10-06T15:18:22-04:00","datePublished":"2021-10-06T15:18:22-04:00","description":"There’s an anti-pattern that I often encounter, I call it “The Daisy Chain”. Code that follows this anti-pattern often looks neat and tidy on the surface. This Doesn’t Seem so Bad… class ThingsController &lt; ApplicationController def index thing_getter = ThingGetter.new thing_getter.get_all end end “Seems like a lean controller” you admit to yourself… but then you drill into things_getter.rb. The Horror class ThingGetter def get_all validate end private def validate # *validate stuff* log_stuff end def log_stuff # *log stuff* get_thing_a end def get_thing_a a = external_request_a get_thing_b(a) end def get_thing_b(a) b = external_request_b {things: {a: a, b: b}} end end :scream: :scream: :scream: This code has problems. Abstractions don’t make sense get_all does not in fact return “all things”, it returns “validate” :man_shrugging: Functions are not reusable It’s not possible to call log_stuff without also calling get_thing_a. There’s Hidden Gotchas When you look at the controller and see thing_getter.get_all, you quickly assume that it’s getting all the things. In reality it’s doing a lot more than that. How To Avoid This When code comes out as a stream of conciousness, a developer may simply make a new function when the prior function gets too big which results in this function “chaining” effect. Most coding I’ve done in practice has been reading &amp; modifying code that wasn’t my own. Do yourfellow developers a solid and consider the high-level abstractions at play and encapsulate them properly.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/billryan/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/billryan/feed.xml" title="OMG! It's Bill Ryan!" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper">
+<a class="site-title" rel="author" href="/billryan/">OMG! It's Bill Ryan!</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/billryan/about/">About</a></div>
+      </nav>
+</div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Daisy Chain Anti-Pattern</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-10-06T15:18:22-04:00" itemprop="datePublished">Oct 6, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>There’s an anti-pattern that I often encounter, I call it “The Daisy Chain”. Code that
+follows this anti-pattern often looks neat and tidy on the surface.</p>
+
+<h1 id="this-doesnt-seem-so-bad">This Doesn’t Seem so Bad…</h1>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">ThingsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="n">thing_getter</span> <span class="o">=</span> <span class="no">ThingGetter</span><span class="p">.</span><span class="nf">new</span>
+    <span class="n">thing_getter</span><span class="p">.</span><span class="nf">get_all</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>“Seems like a lean controller” you admit to yourself… but then you drill into <code class="language-plaintext highlighter-rouge">things_getter.rb</code>.</p>
+
+<h1 id="the-horror">The Horror</h1>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">ThingGetter</span>
+  <span class="k">def</span> <span class="nf">get_all</span>
+    <span class="n">validate</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">validate</span>
+    <span class="c1"># *validate stuff*
+</span>
+    <span class="n">log_stuff</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">log_stuff</span>
+    <span class="c1"># *log stuff*
+</span>
+    <span class="n">get_thing_a</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">get_thing_a</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">external_request_a</span>
+    <span class="n">get_thing_b</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">get_thing_b</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">external_request_b</span>
+    <span class="p">{</span><span class="ss">things: </span><span class="p">{</span><span class="ss">a: </span><span class="n">a</span><span class="p">,</span> <span class="ss">b: </span><span class="n">b</span><span class="p">}}</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p><img class="emoji" title=":scream:" alt=":scream:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f631.png" height="20" width="20"> <img class="emoji" title=":scream:" alt=":scream:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f631.png" height="20" width="20"> <img class="emoji" title=":scream:" alt=":scream:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f631.png" height="20" width="20"></p>
+
+<p>This code has problems.</p>
+
+<ul>
+  <li><strong>Abstractions don’t make sense</strong></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">get_all</code> <em>does not</em> in fact return “all things”, it returns “validate” <img class="emoji" title=":man_shrugging:" alt=":man_shrugging:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f937-2642.png" height="20" width="20"></p>
+
+<ul>
+  <li><strong>Functions are not reusable</strong></li>
+</ul>
+
+<p>It’s not possible to call <code class="language-plaintext highlighter-rouge">log_stuff</code> without also calling <code class="language-plaintext highlighter-rouge">get_thing_a</code>.</p>
+
+<ul>
+  <li><strong>There’s Hidden Gotchas</strong></li>
+</ul>
+
+<p>When you look at the controller and see <code class="language-plaintext highlighter-rouge">thing_getter.get_all</code>, you quickly assume that it’s getting all the things. In reality it’s doing a lot more than that.</p>
+
+<h1 id="how-to-avoid-this">How To Avoid This</h1>
+
+<p>When code comes out as a stream of conciousness, a developer may simply make a new function when 
+the prior function gets too big which results in this function “chaining” effect. Most coding I’ve 
+done in practice has been reading &amp; modifying code that wasn’t my own. Do yourfellow developers 
+a solid and consider the high-level abstractions at play and encapsulate them properly.</p>
+
+  </div>
+<a class="u-url" href="/billryan/daisy-chain-antipattern/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/billryan/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">OMG! It's Bill Ryan!</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">OMG! It's Bill Ryan!</li>
+<li><a class="u-email" href="mailto:william.ryann@gmail.com">william.ryann@gmail.com</a></li>
+</ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li><a href="https://github.com/omgitsbillryan"><svg class="svg-icon"><use xlink:href="/billryan/assets/minima-social-icons.svg#github"></use></svg> <span class="username">omgitsbillryan</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ramblings on the day-to-day findings I encounter while coding.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
