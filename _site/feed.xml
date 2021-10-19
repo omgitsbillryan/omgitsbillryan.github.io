@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-11T21:51:14-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OMG! It’s Bill Ryan!</title><subtitle>Ramblings on the day-to-day findings I encounter while coding.</subtitle><entry><title type="html">Daisy Chain Anti-Pattern</title><link href="http://localhost:4000/daisy-chain-antipattern/" rel="alternate" type="text/html" title="Daisy Chain Anti-Pattern" /><published>2021-10-06T15:18:22-04:00</published><updated>2021-10-06T15:18:22-04:00</updated><id>http://localhost:4000/daisy-chain-antipattern</id><content type="html" xml:base="http://localhost:4000/daisy-chain-antipattern/">&lt;p&gt;There’s an anti-pattern that I often encounter, I call it “The Daisy Chain”. Code that
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-19T16:48:12-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OMG! It’s Bill Ryan!</title><subtitle>Ramblings on the day-to-day findings of a software engineer</subtitle><entry><title type="html">Versioning External Dependencies</title><link href="http://localhost:4000/versioning-your-dependencies/" rel="alternate" type="text/html" title="Versioning External Dependencies" /><published>2021-10-11T22:17:00-04:00</published><updated>2021-10-11T22:17:00-04:00</updated><id>http://localhost:4000/versioning-your-libs</id><content type="html" xml:base="http://localhost:4000/versioning-your-dependencies/">&lt;h2 id=&quot;what-happened&quot;&gt;What Happened&lt;/h2&gt;
+
+&lt;p&gt;I recently encountered an outaged caused by an external library called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github-exporter&lt;/code&gt;.
+The library was used to track a few simple metrics about GitHub usage. The ansible code 
+looked something like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Install github-exporter&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;docker_container&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;infinityworks/github-exporter:latest&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This worked great for about a year and then one afternoon… :boom:. 
+Suddenly, the 5,000 GitHub API hourly quota was being eaten up inside 5 minutes!&lt;/p&gt;
+
+&lt;h2 id=&quot;the-root-cause&quot;&gt;The Root Cause&lt;/h2&gt;
+
+&lt;p&gt;A new image of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;infinityworks/github-exporter&lt;/code&gt; was released to dockerhub. The
+new version changed the default GitHub API pagination behavior. Since the version
+was set to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:latest&lt;/code&gt;, ansible happily consumed &amp;amp; deployed the latest docker image.&lt;/p&gt;
+
+&lt;h2 id=&quot;versioning-options&quot;&gt;Versioning Options&lt;/h2&gt;
+
+&lt;p&gt;Using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:latest&lt;/code&gt; is clearly not suited for production-level 
+software where stability is paramount. The strictest option would be to use
+a git commit SHA, e.g.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;infinityworks/github-exporter@sha256:46e0c757cfcea569501c77ba7e6f72c80123e2a4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;This has it’s own tradeoff as you’re no longer receiving potential security patches
+for free. The middleground is to use a tag name like so,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-`&quot;&gt;infinityworks/github-exporter:1.0.2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Keep in mind that it’s still possible for &lt;a href=&quot;https://rockbag.medium.com/why-you-should-pin-your-docker-images-with-sha-instead-of-tags-fd132443b8a6&quot;&gt;new commits to be made to the underlying
+git code w/o the dockerhub image version changing&lt;/a&gt;, so it’s
+not exactly a silver bullet.&lt;/p&gt;
+
+&lt;h2 id=&quot;closing-thoughts&quot;&gt;Closing Thoughts&lt;/h2&gt;
+
+&lt;p&gt;In the end, it’s up to you the developer to chose the proper version for your given
+situation - choose wisely.&lt;/p&gt;</content><author><name></name></author><summary type="html">What Happened</summary></entry><entry><title type="html">Daisy Chain Anti-Pattern</title><link href="http://localhost:4000/daisy-chain-antipattern/" rel="alternate" type="text/html" title="Daisy Chain Anti-Pattern" /><published>2021-10-06T15:18:22-04:00</published><updated>2021-10-06T15:18:22-04:00</updated><id>http://localhost:4000/daisy-chain-antipattern</id><content type="html" xml:base="http://localhost:4000/daisy-chain-antipattern/">&lt;p&gt;There’s an anti-pattern that I often encounter, I call it “The Daisy Chain”. Code that
 follows this anti-pattern often looks neat and tidy on the surface.&lt;/p&gt;
 
 &lt;h1 id=&quot;this-doesnt-seem-so-bad&quot;&gt;This Doesn’t Seem so Bad…&lt;/h1&gt;

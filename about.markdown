@@ -6,8 +6,6 @@ permalink: /about/
 
 ![My Headshot](/assets/bill_headshot.png)
 
-Welcome to my page.
-
 I am software / devops engineer with a Ruby on Rails & AWS background. As a backend RoR
 developer I spent so much of my time with the Operations & infrastructure team, that I
 ended up joining them. 
