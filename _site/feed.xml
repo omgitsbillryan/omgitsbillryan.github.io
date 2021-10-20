@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-19T16:48:12-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OMG! It’s Bill Ryan!</title><subtitle>Ramblings on the day-to-day findings of a software engineer</subtitle><entry><title type="html">Versioning External Dependencies</title><link href="http://localhost:4000/versioning-your-dependencies/" rel="alternate" type="text/html" title="Versioning External Dependencies" /><published>2021-10-11T22:17:00-04:00</published><updated>2021-10-11T22:17:00-04:00</updated><id>http://localhost:4000/versioning-your-libs</id><content type="html" xml:base="http://localhost:4000/versioning-your-dependencies/">&lt;h2 id=&quot;what-happened&quot;&gt;What Happened&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-19T23:41:27-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OMG! It’s Bill Ryan!</title><subtitle>Ramblings on the day-to-day findings of a software engineer</subtitle><entry><title type="html">Introducing Count Dat Coin!</title><link href="http://localhost:4000/count-dat-coin/" rel="alternate" type="text/html" title="Introducing Count Dat Coin!" /><published>2021-10-19T20:15:00-04:00</published><updated>2021-10-19T20:15:00-04:00</updated><id>http://localhost:4000/count-dat-coin</id><content type="html" xml:base="http://localhost:4000/count-dat-coin/">&lt;h2 id=&quot;calculating-my-crypto-value&quot;&gt;Calculating my Crypto Value&lt;/h2&gt;
+
+&lt;p&gt;For a while I’ve used https://www.countmycrypto.com/ to loosely track the value of my
+crypto holdings.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/count_my_crypto.JPG&quot; alt=&quot;countmycrypto.com&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I always felt a bit uneasy about it (as I with anything crypto-related). Is my data
+being stored somewhere? Am I being tracked? Is anyone looking at this? It’s hard 
+&lt;em&gt;not&lt;/em&gt; to be paranoid when holding crypto. Unlike being reimbursed by your bank when
+your credit card gets stolen, there’s no one to save you when you get scammed out
+of your crypto.&lt;/p&gt;
+
+&lt;h2 id=&quot;introducing-count-dat-coin&quot;&gt;Introducing Count Dat Coin&lt;/h2&gt;
+
+&lt;p&gt;Ignoring the lame name :see_no_evil:, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count-dat-coin&lt;/code&gt; aims to put the user at ease
+with respect data ownership and transparency.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The app does not use server-side storage of any kind - no postgres &amp;amp; not even redis.&lt;/li&gt;
+  &lt;li&gt;The app is open source and can be reviewed by anyone.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;current-status&quot;&gt;Current Status&lt;/h2&gt;
+
+&lt;p&gt;As of writing, the app is deployed in Heroku at 
+&lt;a href=&quot;https://count-dat-coin.herokuapp.com/&quot;&gt;https://count-dat-coin.herokuapp.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/count_dat_coin.JPG&quot; alt=&quot;count-dat-coin&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Crypto prices are fetched every 10 minutes from the CoinMarketCap API. The top 
+10 cryptos by market cap value are supported. It’s still bare-bones, but it
+more or less gets the job done.&lt;/p&gt;
+
+&lt;h2 id=&quot;future-work&quot;&gt;Future Work&lt;/h2&gt;
+
+&lt;p&gt;Listed by priority:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Basic styling - including logos for each of the addedcryptos&lt;/li&gt;
+  &lt;li&gt;Add support for all cryptos listed on CoinMarketCap.com using an auto-complete styled
+text box&lt;/li&gt;
+  &lt;li&gt;Change the name&lt;/li&gt;
+  &lt;li&gt;Register a custom domain&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Calculating my Crypto Value</summary></entry><entry><title type="html">Versioning External Dependencies</title><link href="http://localhost:4000/versioning-your-dependencies/" rel="alternate" type="text/html" title="Versioning External Dependencies" /><published>2021-10-11T22:17:00-04:00</published><updated>2021-10-11T22:17:00-04:00</updated><id>http://localhost:4000/versioning-your-libs</id><content type="html" xml:base="http://localhost:4000/versioning-your-dependencies/">&lt;h2 id=&quot;what-happened&quot;&gt;What Happened&lt;/h2&gt;
 
 &lt;p&gt;I recently encountered an outaged caused by an external library called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github-exporter&lt;/code&gt;.
 The library was used to track a few simple metrics about GitHub usage. The ansible code 
