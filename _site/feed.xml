@@ -1,24 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-19T23:41:27-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OMG! It’s Bill Ryan!</title><subtitle>Ramblings on the day-to-day findings of a software engineer</subtitle><entry><title type="html">Introducing Count Dat Coin!</title><link href="http://localhost:4000/count-dat-coin/" rel="alternate" type="text/html" title="Introducing Count Dat Coin!" /><published>2021-10-19T20:15:00-04:00</published><updated>2021-10-19T20:15:00-04:00</updated><id>http://localhost:4000/count-dat-coin</id><content type="html" xml:base="http://localhost:4000/count-dat-coin/">&lt;h2 id=&quot;calculating-my-crypto-value&quot;&gt;Calculating my Crypto Value&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-25T15:40:41-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OMG! It’s Bill Ryan!</title><subtitle>Ramblings on the day-to-day findings of a software engineer</subtitle><entry><title type="html">Introducing Count Dat Coin!</title><link href="http://localhost:4000/count-dat-coin/" rel="alternate" type="text/html" title="Introducing Count Dat Coin!" /><published>2021-10-19T20:15:00-04:00</published><updated>2021-10-19T20:15:00-04:00</updated><id>http://localhost:4000/count-dat-coin</id><content type="html" xml:base="http://localhost:4000/count-dat-coin/">&lt;h2 id=&quot;calculating-my-crypto-value&quot;&gt;Calculating my Crypto Value&lt;/h2&gt;
 
 &lt;p&gt;For a while I’ve used https://www.countmycrypto.com/ to loosely track the value of my
 crypto holdings.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/count_my_crypto.JPG&quot; alt=&quot;countmycrypto.com&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;I always felt a bit uneasy about it (as I with anything crypto-related). Is my data
-being stored somewhere? Am I being tracked? Is anyone looking at this? It’s hard 
-&lt;em&gt;not&lt;/em&gt; to be paranoid when holding crypto. Unlike being reimbursed by your bank when
-your credit card gets stolen, there’s no one to save you when you get scammed out
-of your crypto.&lt;/p&gt;
+&lt;p&gt;I always felt a bit uneasy about it (as I with anything crypto-related).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;:fearful: &lt;strong&gt;&lt;em&gt;Is my data being stored somewhere?&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;:cold_sweat: &lt;strong&gt;&lt;em&gt;Am I being tracked?&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;:scream: &lt;strong&gt;&lt;em&gt;Is someone else looking at my data?&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It’s hard &lt;em&gt;not&lt;/em&gt; to be paranoid when holding crypto. Unlike being reimbursed by your 
+bank when your credit card gets stolen, there’s no one to save you when you get 
+scammed out of your crypto.&lt;/p&gt;
 
 &lt;h2 id=&quot;introducing-count-dat-coin&quot;&gt;Introducing Count Dat Coin&lt;/h2&gt;
 
-&lt;p&gt;Ignoring the lame name :see_no_evil:, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count-dat-coin&lt;/code&gt; aims to put the user at ease
-with respect data ownership and transparency.&lt;/p&gt;
+&lt;p&gt;The aim is to put the user at ease with respect data ownership and transparency.&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;The app does not use server-side storage of any kind - no postgres &amp;amp; not even redis.&lt;/li&gt;
-  &lt;li&gt;The app is open source and can be reviewed by anyone.&lt;/li&gt;
+  &lt;li&gt;The app does not use server-side storage of any kind - no postgres &amp;amp; not even redis&lt;/li&gt;
+  &lt;li&gt;The app is &lt;a href=&quot;https://github.com/omgitsbillryan/count-dat-coin&quot;&gt;open source and can be reviewed by anyone&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;current-status&quot;&gt;Current Status&lt;/h2&gt;
@@ -29,12 +34,9 @@ with respect data ownership and transparency.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/count_dat_coin.JPG&quot; alt=&quot;count-dat-coin&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Crypto prices are fetched every 10 minutes from the CoinMarketCap API. The top 
-10 cryptos by market cap value are supported. It’s still bare-bones, but it
-more or less gets the job done.&lt;/p&gt;
+10 cryptos by market cap value are supported.&lt;/p&gt;
 
 &lt;h2 id=&quot;future-work&quot;&gt;Future Work&lt;/h2&gt;
-
-&lt;p&gt;Listed by priority:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Basic styling - including logos for each of the addedcryptos&lt;/li&gt;
@@ -79,7 +81,7 @@ not exactly a silver bullet.&lt;/p&gt;
 &lt;h2 id=&quot;closing-thoughts&quot;&gt;Closing Thoughts&lt;/h2&gt;
 
 &lt;p&gt;In the end, it’s up to you the developer to chose the proper version for your given
-situation - choose wisely.&lt;/p&gt;</content><author><name></name></author><summary type="html">What Happened</summary></entry><entry><title type="html">Daisy Chain Anti-Pattern</title><link href="http://localhost:4000/daisy-chain-antipattern/" rel="alternate" type="text/html" title="Daisy Chain Anti-Pattern" /><published>2021-10-06T15:18:22-04:00</published><updated>2021-10-06T15:18:22-04:00</updated><id>http://localhost:4000/daisy-chain-antipattern</id><content type="html" xml:base="http://localhost:4000/daisy-chain-antipattern/">&lt;p&gt;There’s an anti-pattern that I often encounter, I call it “The Daisy Chain”. Code that
+situation - choose wisely.&lt;/p&gt;</content><author><name></name></author><summary type="html">What Happened</summary></entry><entry><title type="html">Daisy Chain Anti-Pattern</title><link href="http://localhost:4000/daisy-chain-antipattern/" rel="alternate" type="text/html" title="Daisy Chain Anti-Pattern" /><published>2021-08-27T15:18:22-04:00</published><updated>2021-08-27T15:18:22-04:00</updated><id>http://localhost:4000/daisy-chain-antipattern</id><content type="html" xml:base="http://localhost:4000/daisy-chain-antipattern/">&lt;p&gt;There’s an anti-pattern that I often encounter, I call it “The Daisy Chain”. Code that
 follows this anti-pattern often looks neat and tidy on the surface.&lt;/p&gt;
 
 &lt;h1 id=&quot;this-doesnt-seem-so-bad&quot;&gt;This Doesn’t Seem so Bad…&lt;/h1&gt;

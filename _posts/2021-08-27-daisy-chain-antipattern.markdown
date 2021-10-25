@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Daisy Chain Anti-Pattern"
-date:   2021-10-06 15:18:22 -0400
+date:   2021-08-27 15:18:22 -0400
 permalink: /daisy-chain-antipattern/
 ---
 
