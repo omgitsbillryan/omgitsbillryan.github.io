@@ -7,8 +7,6 @@ permalink: /count-dat-coin/
 
 ## Calculating my Crypto Value
 
-![countmycrypto.com](/assets/count_my_crypto.JPG)
-
 For a while I've used [https://www.countmycrypto.com](https://www.countmycrypto.com) to loosely track the value of my
 crypto holdings. I always felt a bit uneasy about it (as I with anything crypto-related). 
 
