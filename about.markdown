@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-![My Headshot](/assets/bill_headshot.png)
+![My Headshot](/assets/bill_headshot1.png)
 
 I am software / devops engineer with a Ruby on Rails & AWS background. As a backend RoR
 developer I spent so much of my time with the Operations & infrastructure team, that I

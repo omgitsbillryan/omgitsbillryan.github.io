@@ -21,7 +21,7 @@ end
 
 "Seems like a lean controller" you admit to yourself... but then you drill into `things_getter.rb`.
 
-# The Horror
+# A Closer look
 
 {% highlight ruby %}
 class ThingGetter

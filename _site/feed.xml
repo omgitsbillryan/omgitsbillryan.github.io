@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-25T15:40:41-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OMG! It’s Bill Ryan!</title><subtitle>Ramblings on the day-to-day findings of a software engineer</subtitle><entry><title type="html">Introducing Count Dat Coin!</title><link href="http://localhost:4000/count-dat-coin/" rel="alternate" type="text/html" title="Introducing Count Dat Coin!" /><published>2021-10-19T20:15:00-04:00</published><updated>2021-10-19T20:15:00-04:00</updated><id>http://localhost:4000/count-dat-coin</id><content type="html" xml:base="http://localhost:4000/count-dat-coin/">&lt;h2 id=&quot;calculating-my-crypto-value&quot;&gt;Calculating my Crypto Value&lt;/h2&gt;
-
-&lt;p&gt;For a while I’ve used https://www.countmycrypto.com/ to loosely track the value of my
-crypto holdings.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-25T23:19:26-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">OMG! It’s Bill Ryan!</title><subtitle>Ramblings on the day-to-day findings of a software engineer</subtitle><entry><title type="html">Introducing Count Dat Coin!</title><link href="http://localhost:4000/count-dat-coin/" rel="alternate" type="text/html" title="Introducing Count Dat Coin!" /><published>2021-10-19T20:15:00-04:00</published><updated>2021-10-19T20:15:00-04:00</updated><id>http://localhost:4000/count-dat-coin</id><content type="html" xml:base="http://localhost:4000/count-dat-coin/">&lt;h2 id=&quot;calculating-my-crypto-value&quot;&gt;Calculating my Crypto Value&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/count_my_crypto.JPG&quot; alt=&quot;countmycrypto.com&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;I always felt a bit uneasy about it (as I with anything crypto-related).&lt;/p&gt;
+&lt;p&gt;For a while I’ve used &lt;a href=&quot;https://www.countmycrypto.com&quot;&gt;https://www.countmycrypto.com&lt;/a&gt; to loosely track the value of my
+crypto holdings. I always felt a bit uneasy about it (as I with anything crypto-related).&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;:fearful: &lt;strong&gt;&lt;em&gt;Is my data being stored somewhere?&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
@@ -14,7 +12,7 @@ crypto holdings.&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;It’s hard &lt;em&gt;not&lt;/em&gt; to be paranoid when holding crypto. Unlike being reimbursed by your 
-bank when your credit card gets stolen, there’s no one to save you when you get 
+bank when your credit card gets stolen, no one is going to save you if &amp;amp; when you get 
 scammed out of your crypto.&lt;/p&gt;
 
 &lt;h2 id=&quot;introducing-count-dat-coin&quot;&gt;Introducing Count Dat Coin&lt;/h2&gt;
@@ -28,7 +26,7 @@ scammed out of your crypto.&lt;/p&gt;
 
 &lt;h2 id=&quot;current-status&quot;&gt;Current Status&lt;/h2&gt;
 
-&lt;p&gt;As of writing, the app is deployed in Heroku at 
+&lt;p&gt;The app is deployed in Heroku 
 &lt;a href=&quot;https://count-dat-coin.herokuapp.com/&quot;&gt;https://count-dat-coin.herokuapp.com/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/count_dat_coin.JPG&quot; alt=&quot;count-dat-coin&quot; /&gt;&lt;/p&gt;
@@ -95,7 +93,7 @@ follows this anti-pattern often looks neat and tidy on the surface.&lt;/p&gt;
 
 &lt;p&gt;“Seems like a lean controller” you admit to yourself… but then you drill into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;things_getter.rb&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h1 id=&quot;the-horror&quot;&gt;The Horror&lt;/h1&gt;
+&lt;h1 id=&quot;a-closer-look&quot;&gt;A Closer look&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ThingGetter&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_all&lt;/span&gt;
@@ -154,4 +152,4 @@ follows this anti-pattern often looks neat and tidy on the surface.&lt;/p&gt;
 &lt;p&gt;When code comes out as a stream of conciousness, a developer may simply make a new function when 
 the prior function gets too big which results in this function “chaining” effect. Most coding I’ve 
 done in practice has been reading &amp;amp; modifying code that wasn’t my own. Do yourfellow developers 
-a solid and consider the high-level abstractions at play and encapsulate them properly.&lt;/p&gt;</content><author><name></name></author><summary type="html">There’s an anti-pattern that I often encounter, I call it “The Daisy Chain”. Code that follows this anti-pattern often looks neat and tidy on the surface. This Doesn’t Seem so Bad… class ThingsController &amp;lt; ApplicationController def index thing_getter = ThingGetter.new thing_getter.get_all end end “Seems like a lean controller” you admit to yourself… but then you drill into things_getter.rb. The Horror class ThingGetter def get_all validate end private def validate # *validate stuff* log_stuff end def log_stuff # *log stuff* get_thing_a end def get_thing_a a = external_request_a get_thing_b(a) end def get_thing_b(a) b = external_request_b {things: {a: a, b: b}} end end :scream: :scream: :scream: This code has problems. Abstractions don’t make sense get_all does not in fact return “all things”, it returns “validate” :man_shrugging: Functions are not reusable It’s not possible to call log_stuff without also calling get_thing_a. There’s Hidden Gotchas When you look at the controller and see thing_getter.get_all, you quickly assume that it’s getting all the things. In reality it’s doing a lot more than that. How To Avoid This When code comes out as a stream of conciousness, a developer may simply make a new function when the prior function gets too big which results in this function “chaining” effect. Most coding I’ve done in practice has been reading &amp;amp; modifying code that wasn’t my own. Do yourfellow developers a solid and consider the high-level abstractions at play and encapsulate them properly.</summary></entry></feed>
+a solid and consider the high-level abstractions at play and encapsulate them properly.&lt;/p&gt;</content><author><name></name></author><summary type="html">There’s an anti-pattern that I often encounter, I call it “The Daisy Chain”. Code that follows this anti-pattern often looks neat and tidy on the surface. This Doesn’t Seem so Bad… class ThingsController &amp;lt; ApplicationController def index thing_getter = ThingGetter.new thing_getter.get_all end end “Seems like a lean controller” you admit to yourself… but then you drill into things_getter.rb. A Closer look class ThingGetter def get_all validate end private def validate # *validate stuff* log_stuff end def log_stuff # *log stuff* get_thing_a end def get_thing_a a = external_request_a get_thing_b(a) end def get_thing_b(a) b = external_request_b {things: {a: a, b: b}} end end :scream: :scream: :scream: This code has problems. Abstractions don’t make sense get_all does not in fact return “all things”, it returns “validate” :man_shrugging: Functions are not reusable It’s not possible to call log_stuff without also calling get_thing_a. There’s Hidden Gotchas When you look at the controller and see thing_getter.get_all, you quickly assume that it’s getting all the things. In reality it’s doing a lot more than that. How To Avoid This When code comes out as a stream of conciousness, a developer may simply make a new function when the prior function gets too big which results in this function “chaining” effect. Most coding I’ve done in practice has been reading &amp;amp; modifying code that wasn’t my own. Do yourfellow developers a solid and consider the high-level abstractions at play and encapsulate them properly.</summary></entry></feed>
